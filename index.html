@@ -24,14 +24,35 @@
       margin-bottom: 15px;
       color: white;
     }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit);
-	  border-radius: 10px;
-	    border: 1px;
-      gap: 15px;
+	  .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
     }
+
+
+    .mini-flex1 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+
+  grid-column: 1 / -1;   
+  
+  background: rgb(45, 45, 45);
+  padding: 20px;
+  border-radius: 15px;
+  border: 1px solid rgb(225, 197, 167);
+  box-shadow: 0 0 15px rgba(0,0,0,0.4);
+}
+.mini-flex1 figure {
+  flex: 1 1 200px;
+}
+
+.mini-flex1 img {
+  height: 180px; 
+}
+
+
 
     .gallery img {
       width: 100%;
