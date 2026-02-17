@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style> 
 
-
     * {
       margin: 0;
       box-sizing: border-box;
@@ -18,48 +17,46 @@
       padding: 20px;
     }
 
-    
-
-
   /* --- groupings---*/
 	  .mini-flex {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        grid-column: 1 / -1;   
+        background: rgb(45, 45, 45);
+        padding: 20px;
+        border-radius: 15px;
+        border: 1px solid rgb(225, 197, 167);
+        box-shadow: 0 0 15px rgba(0,0,0,0.4);
+      }
 
-  grid-column: 1 / -1;   
-  
-  background: rgb(45, 45, 45);
-  padding: 20px;
-  border-radius: 15px;
-  border: 1px solid rgb(225, 197, 167);
-  box-shadow: 0 0 15px rgba(0,0,0,0.4);
-}
-.mini-flex figure {
-  flex: 1 1 200px;
-}
+      .mini-flex figure {
+        flex: 1 1 200px;
+      }
 
-.mini-flex img {
-  height: 180px; 
-}
-.mini-title {
-font-size: 1.5rem;
-      margin-bottom: 15px;
-      color: white;
-	
-}
+      .mini-flex img {
+        height: 180px; 
+      }
 
-/* --- GALLERY --- */
+      .mini-title {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+        color: white;
+        width: 100%;
+      }
+
+    /* --- GALLERY --- */
     .gallery-title {
       font-size: 2.2rem;
       margin-bottom: 15px;
       color: white;
     }
+
 	  .gallery {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 15px;
+        gap: 20px;
 	  }
+
     .gallery img {
       width: 100%;
       height: 200px;
@@ -73,36 +70,38 @@ font-size: 1.5rem;
       transform: scale(1.05);
       opacity: 0.85;
     }
+
 	  figure {
 		  color: rgb(225, 197, 167);
 	  }
+
     /* --- POPUP LIGHTBOX --- */
     #popup {
       display: none;
       position: fixed;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.85);
+      background: rgba(0, 0, 0, 0.9);
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       z-index: 1000;
-      animation: fadeIn 0.25s ease;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+    #popup-title {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: rgb(225, 197, 167);
     }
 
     #popup-img {
       max-width: 85%;
-      max-height: 85%;
+      max-height: 75%;
       border-radius: 10px;
       border: 3px solid rgb(225, 197, 167);
       box-shadow: 0 0 20px black;
     }
 
-    /* Close Button */
     .close-btn {
       position: fixed;
       top: 20px;
@@ -110,11 +109,9 @@ font-size: 1.5rem;
       font-size: 40px;
       color: rgb(225, 197, 167);
       cursor: pointer;
-      user-select: none;
       z-index: 1100;
     }
 
-    /* Navigation Arrows */
     .arrow {
       position: fixed;
       top: 50%;
@@ -122,10 +119,8 @@ font-size: 1.5rem;
       font-size: 60px;
       color: rgb(225, 197, 167);
       cursor: pointer;
-      user-select: none;
       padding: 10px 20px;
       z-index: 1100;
-      transition: 0.2s;
     }
 
     .arrow:hover {
@@ -135,160 +130,121 @@ font-size: 1.5rem;
 
     .left-arrow { left: 20px; }
     .right-arrow { right: 20px; }
-.audio {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background-color: rgb(225, 197, 167); 
-    color: black;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 10px;
-    font-size: 1.2em;
-    cursor: pointer;
-
 
   </style>
 </head>
 
 <body>
 
-    <h2 class="gallery-title">Hair I have done <3 </h2>
-  <div class="gallery">
+<h2 class="gallery-title">Hair I have done &lt;3</h2>
+
+<div class="gallery">
+
 <div class="mini-flex">	  
-	<h3 class="mini-title"> Transformation</h3>
-  <figure>
-	
-    <img src="jessbefore.jpg">
-    <figcaption>Description</figcaption>
-  </figure>
-
-  <figure>
-    <img src="shortjess.jpg">
-    <figcaption>Description</figcaption>
-  </figure>
-
-  <figure>
-    <img src="short2.jpg">
-    <figcaption>Description</figcaption>
-  </figure>
+	<h3 class="mini-title">Transformation</h3>
+  <figure><img src="jessbefore.jpg"></figure>
+  <figure><img src="shortjess.jpg"></figure>
+  <figure><img src="short2.jpg"></figure>
 </div>
+
 <div class="mini-flex">
-	<h4 class="mini-title"> Highlights</h4>
-	<figure>
-    <img src="jess.jpg">
-    <figcaption>Description</figcaption>
-  </figure>
-	<figure>
-    <img src="porfo.jpg">
-    <figcaption>Description</figcaption>
-	</figure>
+	<h3 class="mini-title">Highlights</h3>
+	<figure><img src="jess.jpg"></figure>
+	<figure><img src="porfo.jpg"></figure>
 </div>
+
 <div class="mini-flex">
-	<h5 class="mini-title"> im not a vampire but i feel like one</h5>
-  <figure>
-    <img src="jess2.jpg">
-    <figcaption>Description</figcaption>
-  </figure>
-
-  <figure>
-    <img src="jess3.jpg">
-    <figcaption>Description</figcaption>
-  </figure>
+	<h3 class="mini-title">Im not a vampire but I feel like one</h3>
+  <figure><img src="jess2.jpg"></figure>
+  <figure><img src="jess3.jpg"></figure>
 </div>
-	
-	<div class="mini-flex">
-		<h6 class="mini-title"> guy</h6>
-	<figure>
-    <img src="Porbefor.jpg">
-    <figcaption>Description</figcaption>
-  </figure>
-  <figure>
-    <img src="por.jpg">
-    <figcaption>Description 1</figcaption>
-  </figure>
-	</div>
-	  <div class="mini-flex">
-		  <h7 class="mini-title"> Miscellaneous</h7>
-  <figure>
-    <img src="porf.jpg">
-    <figcaption>Description</figcaption>
-  </figure>
-<figure>
-    <img src="maniquin.jpg">
-    <figcaption>Description</figcaption>
-</figure>
-	  </div> 
-  
- </div>
 
-  </div>
-  <!-- POPUP -->
-  <div id="popup">
-    <span class="close-btn" id="closeBtn">&times;</span>
-    <span class="arrow left-arrow" id="leftArrow">&#10094;</span>
-    <img id="popup-img" src="">
-    <span class="arrow right-arrow" id="rightArrow">&#10095;</span>
-  </div>
+<div class="mini-flex">
+	<h3 class="mini-title">Guy</h3>
+	<figure><img src="Porbefor.jpg"></figure>
+  <figure><img src="por.jpg"></figure>
+</div>
 
-  <script>
-    const images = document.querySelectorAll('.gallery img');
-    const popup = document.getElementById('popup');
-    const popupImg = document.getElementById('popup-img');
+<div class="mini-flex">
+	<h3 class="mini-title">Miscellaneous</h3>
+  <figure><img src="porf.jpg"></figure>
+  <figure><img src="maniquin.jpg"></figure>
+</div>
 
-    const closeBtn = document.getElementById('closeBtn');
-    const leftArrow = document.getElementById('leftArrow');
-    const rightArrow = document.getElementById('rightArrow');
+</div>
 
-    let currentIndex = 0;
+<!-- POPUP -->
+<div id="popup">
+  <span class="close-btn" id="closeBtn">&times;</span>
+  <span class="arrow left-arrow" id="leftArrow">&#10094;</span>
 
-    function openPopup(index) {
-      currentIndex = index;
-      popupImg.src = images[index].src;
-      popup.style.display = 'flex';
-    }
+  <div id="popup-title"></div>
+  <img id="popup-img" src="">
 
-    function closePopup() {
-      popup.style.display = 'none';
-    }
+  <span class="arrow right-arrow" id="rightArrow">&#10095;</span>
+</div>
 
-    function showNext() {
-      currentIndex = (currentIndex + 1) % images.length;
-      popupImg.src = images[currentIndex].src;
-    }
+<script>
+const images = document.querySelectorAll('.gallery img');
+const popup = document.getElementById('popup');
+const popupImg = document.getElementById('popup-img');
+const popupTitle = document.getElementById('popup-title');
 
-    function showPrev() {
-      currentIndex = (currentIndex - 1 + images.length) % images.length;
-      popupImg.src = images[currentIndex].src;
-    }
+const closeBtn = document.getElementById('closeBtn');
+const leftArrow = document.getElementById('leftArrow');
+const rightArrow = document.getElementById('rightArrow');
 
-    images.forEach((img, index) => {
-      img.addEventListener('click', () => openPopup(index));
-    });
+let currentIndex = 0;
 
-    closeBtn.addEventListener('click', closePopup);
-    rightArrow.addEventListener('click', showNext);
-    leftArrow.addEventListener('click', showPrev);
+function updatePopup(index) {
+  popupImg.src = images[index].src;
 
-    // Close when clicking outside the image
-    popup.addEventListener('click', (e) => {
-      if (e.target === popup) closePopup();
-    });
-
-    // Keyboard controls
-    document.addEventListener('keydown', (e) => {
-      if (popup.style.display === 'flex') {
-        if (e.key === 'ArrowRight') showNext();
-        if (e.key === 'ArrowLeft') showPrev();
-        if (e.key === 'Escape') closePopup();
-      }
-    });
-function playAudio() {
-    const audio = document.getElementById("bgm");
-    audio.play().catch(e => console.log("Playback was prevented:", e));
+  // Find the section title
+  const section = images[index].closest('.mini-flex');
+  const title = section.querySelector('.mini-title').textContent;
+  popupTitle.textContent = title;
 }
 
-  </script>
+function openPopup(index) {
+  currentIndex = index;
+  updatePopup(currentIndex);
+  popup.style.display = 'flex';
+}
+
+function closePopup() {
+  popup.style.display = 'none';
+}
+
+function showNext() {
+  currentIndex = (currentIndex + 1) % images.length;
+  updatePopup(currentIndex);
+}
+
+function showPrev() {
+  currentIndex = (currentIndex - 1 + images.length) % images.length;
+  updatePopup(currentIndex);
+}
+
+images.forEach((img, index) => {
+  img.addEventListener('click', () => openPopup(index));
+});
+
+closeBtn.addEventListener('click', closePopup);
+rightArrow.addEventListener('click', showNext);
+leftArrow.addEventListener('click', showPrev);
+
+popup.addEventListener('click', (e) => {
+  if (e.target === popup) closePopup();
+});
+
+document.addEventListener('keydown', (e) => {
+  if (popup.style.display === 'flex') {
+    if (e.key === 'ArrowRight') showNext();
+    if (e.key === 'ArrowLeft') showPrev();
+    if (e.key === 'Escape') closePopup();
+  }
+});
+</script>
 
 </body>
-  </html>
+</html>
